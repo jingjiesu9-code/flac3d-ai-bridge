@@ -1,0 +1,33 @@
+flac3d-ai-bridge -- third-party notices
+=======================================
+
+This repository contains orchestration and configuration code only. It does
+not bundle, redistribute, or modify FLAC3D itself, nor the Python packages it
+installs.
+
+1. FLAC3D
+   FLAC3D is commercial software by Itasca Consulting Group, Inc.
+   https://www.itascacg.com/software/flac3d
+   "FLAC3D", "ITASCA", "PFC", "3DEC" and related marks are trademarks of
+   Itasca Consulting Group, Inc. This project is not affiliated with, endorsed
+   by, or supported by Itasca. You need your own valid FLAC3D licence to use it.
+
+2. itasca-mcp-bridge and flac-mcp (installed from PyPI, not included here)
+   - itasca-mcp-bridge -- MIT -- https://pypi.org/project/itasca-mcp-bridge/
+   - flac-mcp          -- MIT -- https://pypi.org/project/flac-mcp/
+   - itasca-mcp (successor to flac-mcp) -- MIT
+     https://github.com/yusong652/itasca-mcp
+   They are the work of their respective authors. This project only pins
+   versions and wires them together; all credit for the bridge/MCP layer
+   belongs upstream.
+
+3. DeepSeek Harness (DSH)
+   dsh/agent_preset/flac3d/agent.cordis.yml is a snapshot derived from the
+   `standard` agent preset shipped with DeepSeek Harness, with the persona and
+   skill rows replaced (see dsh/build_preset.py). It is included so the preset
+   is reproducible and reviewable. If you redistribute this repository, review
+   DSH's own terms for that file.
+
+4. Everything else in this repository (the .ps1 scripts, flacctl.py,
+   mcp_stdio_probe.js, templates, tests and documentation) is licensed under
+   the MIT License in LICENSE.

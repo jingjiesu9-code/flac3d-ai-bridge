@@ -1,0 +1,37 @@
+# TEMPLATE -- rendered to mcp-flac3d.patch.yml by configure.ps1. Do not edit by hand.
+# >>> flac3d-mcp (managed block, maintained by apply_dsh_mcp.ps1)
+#
+# Mounts the FLAC3D MCP tools into DSH.
+#
+# Why a patch row is needed at all: @deepseek-ai/dsh-mcp-client ships inside the
+# DSH app but NO bundle mounts it, so it never appears in `dsh --dump-config`
+# output -- which makes it look like DSH has no MCP support. It does. This
+# row inserts it into the profile tree at the user layer, which is applied after
+# every bundle layer. Tools surface as mcp__flac3d__<toolName>.
+#
+# Transport: stdio -- the MCP client owns the server lifecycle, so there is no
+# standalone daemon to keep alive.
+- insert:
+    - id: mcp-flac3d
+      name: '@deepseek-ai/dsh-mcp-client'
+      config:
+        serverName: flac3d
+        transport: stdio
+        # single-quoted YAML: Windows backslashes are literal here
+        command: '@@MCP_EXE@@'
+        args:
+          - '--bridge-url'
+          - 'http://@@BRIDGE_HOST@@:@@BRIDGE_PORT@@'
+          - '--log-level'
+          - 'warning'
+        # FLAC3D calls are routinely slow; the 60s SDK default is tight
+        toolCallTimeoutMs: 120000
+        # Critical: a closed FLAC3D must not block harness startup. Tools stay
+        # listed and report a clear error when called.
+        failOnStartupError: false
+        reconnect:
+          enabled: true
+          initialDelayMs: 500
+          maxDelayMs: 30000
+          maxAttempts: 10
+# <<< flac3d-mcp (managed block)

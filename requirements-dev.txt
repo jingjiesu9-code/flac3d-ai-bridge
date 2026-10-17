@@ -1,0 +1,4 @@
+# Only needed to run the repository checks: python -m pip install -r requirements-dev.txt
+# The package itself has no host-side Python dependencies (flacctl.py is stdlib-only;
+# flac-mcp and itasca-mcp-bridge are installed into their own environments by setup.ps1).
+pyyaml>=6.0

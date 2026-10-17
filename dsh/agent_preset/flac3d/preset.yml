@@ -1,0 +1,2 @@
+name: FLAC3D 建模
+description: 面向 ITASCA FLAC3D 的建模 Agent。自带 FLAC3D 操作约定（求解器单线程串行、长任务走 execute_task、FISH 三角函数用弧度）与 flac3d-simulation 技能，通过 mcp__flac3d__* 工具直接驱动本机 FLAC3D。

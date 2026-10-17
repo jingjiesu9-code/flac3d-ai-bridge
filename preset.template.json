@@ -1,0 +1,47 @@
+{
+  "_readme": "TEMPLATE. Do not edit by hand -- run configure.ps1, which detects the local paths and renders preset.json. Placeholder fields are substituted at render time.",
+  "_schema": 1,
+
+  "flac3d": {
+    "version": "@@FLAC3D_VERSION@@",
+    "installDir": "@@FLAC3D_DIR@@",
+    "consoleExe": "@@FLAC3D_CONSOLE@@",
+    "guiExe": "@@FLAC3D_GUI@@",
+    "pythonExe": "@@FLAC3D_PYTHON@@",
+    "projectDir": "@@FLAC3D_PROJECT@@",
+    "projectDirNote": "Default working directory for new FLAC3D instances. Set with configure.ps1 -ProjectDir."
+  },
+
+  "bridge": {
+    "package": "itasca-mcp-bridge",
+    "version": "@@BRIDGE_VERSION@@",
+    "host": "127.0.0.1",
+    "port": 9001,
+    "protocol": "HTTP + SSE",
+    "pairing": "The bridge speaks either WebSocket (0.2.x) or HTTP+SSE (0.5.x). flac-mcp 0.5.2 only speaks HTTP+SSE, so a 0.2.x bridge fails with a bare '400 Bad Request'. Keep bridge >= 0.5."
+  },
+
+  "mcpServer": {
+    "package": "flac-mcp",
+    "version": "@@FLAC_MCP_VERSION@@",
+    "venv": "@@VENV_DIR@@",
+    "exe": "@@MCP_EXE@@",
+    "transport": "stdio",
+    "transportNote": "stdio lets the MCP client own the server lifecycle (recommended). 'http' runs it as a standalone service usable by several clients at once."
+  },
+
+  "dsh": {
+    "enabled": @@DSH_ENABLED@@,
+    "home": "@@DSH_HOME@@",
+    "profile": "@@DSH_PROFILE@@",
+    "profileDir": "@@DSH_PROFILE_DIR@@",
+    "patchFile": "@@DSH_PATCH_FILE@@",
+    "mcpClientPlugin": "@deepseek-ai/dsh-mcp-client",
+    "serverName": "flac3d",
+    "toolPrefix": "mcp__flac3d__",
+    "note": "Only used by apply_dsh_mcp.ps1. Everything except the DSH integration works without DSH."
+  },
+
+  "hostPython": "@@HOST_PYTHON@@",
+  "presetDir": "@@PRESET_DIR@@"
+}

@@ -1,0 +1,10 @@
+* text=auto
+
+# PowerShell must stay LF + ASCII; the scripts are parsed by Windows
+# PowerShell 5.1, which treats a BOM-less non-ASCII .ps1 as ANSI.
+*.ps1 text eol=lf
+*.py  text eol=lf
+*.js  text eol=lf
+*.md  text eol=lf
+*.yml text eol=lf
+*.json text eol=lf

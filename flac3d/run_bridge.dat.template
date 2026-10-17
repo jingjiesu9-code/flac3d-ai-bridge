@@ -1,0 +1,4 @@
+; TEMPLATE -- rendered to run_bridge.dat by configure.ps1. Do not edit by hand.
+; Run this from the FLAC3D command console (prompt: flac3d>), NOT from the
+; IPython pane: `program call` is FLAC3D command syntax, not Python.
+program call '@@PRESET_DIR@@\flac3d\start_bridge.py'
