@@ -91,7 +91,8 @@ git clone https://github.com/jingjiesu9-code/flac3d-ai-bridge.git
 cd flac3d-ai-bridge
 ```
 
-也可以直接在 [Releases](https://github.com/jingjiesu9-code/flac3d-ai-bridge/releases) 下载 zip 解压。
+不想装 git 也没关系：在仓库页面点 **Code → Download ZIP** 解压即可；已发布的版本在
+[Releases](https://github.com/jingjiesu9-code/flac3d-ai-bridge/releases) 里。
 
 ### 2. 探测环境
 
